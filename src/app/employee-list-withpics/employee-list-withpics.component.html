@@ -1,0 +1,40 @@
+<button (click)="show = !show">{{show ? 'Hide Employee Table' : 'Show Employee Table'}}</button>
+ 
+<div *ngIf="show;">
+  <h1>Employee List With Pictures</h1>
+
+  <table class="table" >
+    <thead class="thead">
+      <th class="th" sortable-column="profileImage">
+        Profile    
+      </th>
+      <th class="th" sortable-column="name">
+        Employee Name
+      </th>
+      <th class="th" sortable-column="title">
+        Job Title
+      </th>
+      
+    </thead>
+    <tr *ngFor="let employee of employees"
+    [class.selected]="employee === selectedEmployee"
+    (click)="onSelect(employee)">
+      <td><img src="{{employee.profileImage}}"/></td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.title}}</td>
+    </tr>
+  </table>
+
+
+  <div *ngIf="selectedEmployee">
+
+    <h2>{{selectedEmployee.name | uppercase}} Details</h2>
+    <div><span>Name: </span>{{selectedEmployee.name}}</div>
+    <div>
+      <label>Title:
+        <input [(ngModel)]="selectedEmployee.title" placeholder="title">
+      </label>
+    </div>
+
+  </div>
+</div>

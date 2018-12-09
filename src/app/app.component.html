@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+
+<table style="margin: 100px;">
+    <tr *ngFor = 'let lst of empList'>
+        <td>
+            {{lst.name}}
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>
+            {{lst.title}}
+        </td> 
+        
+    </tr>
+
+</table>
+
+
+<app-employee-list-withpics></app-employee-list-withpics>
